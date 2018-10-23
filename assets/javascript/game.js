@@ -18,6 +18,7 @@ $(document).ready(function(){
     // player's score as they play the game. they need to match this to the randomNumber to win
     var totalScore = 0;
 
+    
     function setupGame() {
         randomNumber = Math.floor(Math.random() * 100) + 1;
         redCrystalValue = Math.floor(Math.random() * 12) + 1;
@@ -29,11 +30,38 @@ $(document).ready(function(){
 
     setupGame();
 
+    function gameReset() {
+        setupGame();
+        totalScore = 0;
+        $("#total-score").text(totalScore);
+    }
+
+    function compareScores() {
+        if (totalScore === randomNumber) {
+            alert("You won!");
+            wins++;
+            $("#wins").text(wins);
+            gameReset();
+        }
+
+        else if (totalScore > randomNumber) {
+            alert("You lost!");
+            losses++;
+            $("#losses").text(losses);
+            gameReset();
+        }
+
+        else {
+            return false;
+        }
+    }
+
 
     $("#red-crystal").on("click", function() {
         // alert("i've been clicked");
         totalScore = redCrystalValue + totalScore;
         $("#total-score").text(totalScore);
+        compareScores();
         console.log(totalScore);
     });
 
@@ -41,6 +69,7 @@ $(document).ready(function(){
         // alert("i've been clicked");
         totalScore = blueCrystalValue + totalScore;
         $("#total-score").text(totalScore);
+        compareScores();
         console.log(totalScore);
     });
 
@@ -49,6 +78,7 @@ $(document).ready(function(){
         // alert("i've been clicked");
         totalScore = yellowCrystalValue + totalScore;
         $("#total-score").text(totalScore);
+        compareScores();
         console.log(totalScore);
     });
 
@@ -56,8 +86,13 @@ $(document).ready(function(){
         // alert("i've been clicked");
         totalScore = greenCrystalValue + totalScore;
         $("#total-score").text(totalScore);
+        compareScores();
         console.log(totalScore);
     });
+
+
+
+
 
     // setupGame();
     console.log(randomNumber);
