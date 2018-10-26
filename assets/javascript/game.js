@@ -1,19 +1,19 @@
 $(document).ready(function(){
     // global variables
     // random number that will range from 19-120
-    var randomNumber = "";
+    var randomNumber;
     // total amount of player wins
     var wins = 0;
     // total amount of player losses
     var losses = 0;
     // point value of the red crystal. will be random
-    var redCrystalValue= "";
+    var redCrystalValue;
     // point value of the blue crystal. will be random
-    var blueCrystalValue = "";
+    var blueCrystalValue;
     // point value of the yellow crystal. will be random
-    var yellowCrystalValue = "";
+    var yellowCrystalValue;
     // point value of the green crystal. will be random
-    var greenCrystalValue = "";
+    var greenCrystalValue;
     // player's score as they play the game. they need to match this to the randomNumber to win
     var totalScore = 0;
 
@@ -28,7 +28,7 @@ $(document).ready(function(){
         $("#total-score").text(totalScore);
     };
 
-    // initialize the game
+    // start the game
     setupGame();
 
     // when the game is reset, all values but the wins and losses will be reset
@@ -62,7 +62,6 @@ $(document).ready(function(){
         totalScore = redCrystalValue + totalScore;
         $("#total-score").text(totalScore);
         compareScores();
-        console.log(totalScore);
     });
 
     // when the blue crystal is clicked, add its value to the totalScore and
@@ -71,7 +70,6 @@ $(document).ready(function(){
         totalScore = blueCrystalValue + totalScore;
         $("#total-score").text(totalScore);
         compareScores();
-        console.log(totalScore);
     });
 
     // when the yellow crystal is clicked, add its value to the totalScore and
@@ -80,7 +78,6 @@ $(document).ready(function(){
         totalScore = yellowCrystalValue + totalScore;
         $("#total-score").text(totalScore);
         compareScores();
-        console.log(totalScore);
     });
 
     // when the green crystal is clicked, add its value to the totalScore and
@@ -89,12 +86,6 @@ $(document).ready(function(){
         totalScore = greenCrystalValue + totalScore;
         $("#total-score").text(totalScore);
         compareScores();
-        console.log(totalScore);
     });
-
-    console.log(randomNumber);
-    console.log(redCrystalValue);
-    console.log(blueCrystalValue);
-    console.log(yellowCrystalValue);
-    console.log(greenCrystalValue);
+    
 });
