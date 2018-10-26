@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    //global variables
+    // global variables
     // random number that will range from 19-120
     var randomNumber = "";
     // total amount of player wins
@@ -19,14 +19,14 @@ $(document).ready(function(){
 
     // this is how the game will be set up. all numbers are picked at random
     function setupGame() {
-        randomNumber = Math.floor(Math.random() * 100) + 1;
+        randomNumber = Math.floor(Math.random() * 101) + 19;
         redCrystalValue = Math.floor(Math.random() * 12) + 1;
         blueCrystalValue = Math.floor(Math.random() * 12) + 1;
         yellowCrystalValue = Math.floor(Math.random() * 12) + 1;
         greenCrystalValue = Math.floor(Math.random() * 12) + 1;
         $("#random-number").text(randomNumber);
         $("#total-score").text(totalScore);
-    }
+    };
 
     // initialize the game
     setupGame();
@@ -35,13 +35,13 @@ $(document).ready(function(){
     function gameReset() {
         totalScore = 0;
         setupGame();
-    }
+    };
 
     // check if the player has won or lost, if not then continue
     function compareScores() {
         // if the player wins, alert them and add to their wins counter, then reset the game
         if (totalScore === randomNumber) {
-            alert("You won!");
+            alert("You won! :)");
             wins++;
             $("#wins").text(wins);
             gameReset();
@@ -49,22 +49,16 @@ $(document).ready(function(){
 
         // if the player loses, alert them and add to their losses counter, then reset the game
         else if (totalScore > randomNumber) {
-            alert("You lost!");
+            alert("You lost! :/");
             losses++;
             $("#losses").text(losses);
             gameReset();
         }
-
-        // if they still have not won or lost, continue
-        else {
-            return false;
-        }
-    }
+    };
 
     // when the red crystal is clicked, add its value to the totalScore and
     // check if the player has won or lost
     $("#red-crystal").on("click", function() {
-        // alert("i've been clicked");
         totalScore = redCrystalValue + totalScore;
         $("#total-score").text(totalScore);
         compareScores();
@@ -74,7 +68,6 @@ $(document).ready(function(){
     // when the blue crystal is clicked, add its value to the totalScore and
     // check if the player has won or lost
     $("#blue-crystal").on("click", function() {
-        // alert("i've been clicked");
         totalScore = blueCrystalValue + totalScore;
         $("#total-score").text(totalScore);
         compareScores();
@@ -84,7 +77,6 @@ $(document).ready(function(){
     // when the yellow crystal is clicked, add its value to the totalScore and
     // check if the player has won or lost
     $("#yellow-crystal").on("click", function() {
-        // alert("i've been clicked");
         totalScore = yellowCrystalValue + totalScore;
         $("#total-score").text(totalScore);
         compareScores();
@@ -94,7 +86,6 @@ $(document).ready(function(){
     // when the green crystal is clicked, add its value to the totalScore and
     // check if the player has won or lost
     $("#green-crystal").on("click", function() {
-        // alert("i've been clicked");
         totalScore = greenCrystalValue + totalScore;
         $("#total-score").text(totalScore);
         compareScores();
